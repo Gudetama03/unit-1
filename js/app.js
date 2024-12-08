@@ -45,69 +45,88 @@ Game logic(pseudocode):
 
 */
 
-const deck = [  
-    // Hearts  
-    { id: 0, card: "Ace of Hearts", link: "./resources/cards/ace_of_hearts.png" },  
-    { id: 1, card: "2 of Hearts", link: "" },  
-    { id: 2, card: "3 of Hearts", link: "" },  
-    { id: 3, card: "4 of Hearts", link: "" },  
-    { id: 4, card: "5 of Hearts", link: "" },  
-    { id: 5, card: "6 of Hearts", link: "" },  
-    { id: 6, card: "7 of Hearts", link: "" },  
-    { id: 7, card: "8 of Hearts", link: "" },  
-    { id: 8, card: "9 of Hearts", link: "" },  
-    { id: 9, card: "10 of Hearts", link: "" },  
-    { id: 10, card: "Jack of Hearts", link: "" },  
-    { id: 11, card: "Queen of Hearts", link: "" },  
-    { id: 12, card: "King of Hearts", link: "" },  
 
-    // Diamonds  
-    { id: 13, card: "Ace of Diamonds", link: "" },  
-    { id: 14, card: "2 of Diamonds", link: "" },  
-    { id: 15, card: "3 of Diamonds", link: "" },  
-    { id: 16, card: "4 of Diamonds", link: "" },  
-    { id: 17, card: "5 of Diamonds", link: "" },  
-    { id: 18, card: "6 of Diamonds", link: "" },  
-    { id: 19, card: "7 of Diamonds", link: "" },  
-    { id: 20, card: "8 of Diamonds", link: "" },  
-    { id: 21, card: "9 of Diamonds", link: "" },  
-    { id: 22, card: "10 of Diamonds", link: "" },  
-    { id: 23, card: "Jack of Diamonds", link: "" },  
-    { id: 24, card: "Queen of Diamonds", link: "" },  
-    { id: 25, card: "King of Diamonds", link: "" },  
+const deck = [    
+    // Hearts    
+    { id: 0, card: "Ace of Hearts", link: "./resources/cards/ace_of_hearts.png" },    
+    { id: 1, card: "2 of Hearts", link: "./resources/cards/2_of_hearts.png" },    
+    { id: 2, card: "3 of Hearts", link: "./resources/cards/3_of_hearts.png" },    
+    { id: 3, card: "4 of Hearts", link: "./resources/cards/4_of_hearts.png" },    
+    { id: 4, card: "5 of Hearts", link: "./resources/cards/5_of_hearts.png" },    
+    { id: 5, card: "6 of Hearts", link: "./resources/cards/6_of_hearts.png" },    
+    { id: 6, card: "7 of Hearts", link: "./resources/cards/7_of_hearts.png" },    
+    { id: 7, card: "8 of Hearts", link: "./resources/cards/8_of_hearts.png" },    
+    { id: 8, card: "9 of Hearts", link: "./resources/cards/9_of_hearts.png" },    
+    { id: 9, card: "10 of Hearts", link: "./resources/cards/10_of_hearts.png" },    
+    { id: 10, card: "Jack of Hearts", link: "./resources/cards/jack_of_hearts2.png" },    
+    { id: 11, card: "Queen of Hearts", link: "./resources/cards/queen_of_hearts2.png" },    
+    { id: 12, card: "King of Hearts", link: "./resources/cards/king_of_hearts2.png" },    
 
-    // Clubs  
-    { id: 26, card: "Ace of Clubs", link: "" },  
-    { id: 27, card: "2 of Clubs", link: "" },  
-    { id: 28, card: "3 of Clubs", link: "" },  
-    { id: 29, card: "4 of Clubs", link: "" },  
-    { id: 30, card: "5 of Clubs", link: "" },  
-    { id: 31, card: "6 of Clubs", link: "" },  
-    { id: 32, card: "7 of Clubs", link: "" },  
-    { id: 33, card: "8 of Clubs", link: "" },  
-    { id: 34, card: "9 of Clubs", link: "" },  
-    { id: 35, card: "10 of Clubs", link: "" },  
-    { id: 36, card: "Jack of Clubs", link: "" },  
-    { id: 37, card: "Queen of Clubs", link: "" },  
-    { id: 38, card: "King of Clubs", link: "" },  
+    // Diamonds    
+    { id: 13, card: "Ace of Diamonds", link: "./resources/cards/ace_of_diamonds.png" },    
+    { id: 14, card: "2 of Diamonds", link: "./resources/cards/2_of_diamonds.png" },    
+    { id: 15, card: "3 of Diamonds", link: "./resources/cards/3_of_diamonds.png" },    
+    { id: 16, card: "4 of Diamonds", link: "./resources/cards/4_of_diamonds.png" },    
+    { id: 17, card: "5 of Diamonds", link: "./resources/cards/5_of_diamonds.png" },    
+    { id: 18, card: "6 of Diamonds", link: "./resources/cards/6_of_diamonds.png" },    
+    { id: 19, card: "7 of Diamonds", link: "./resources/cards/7_of_diamonds.png" },    
+    { id: 20, card: "8 of Diamonds", link: "./resources/cards/8_of_diamonds.png" },    
+    { id: 21, card: "9 of Diamonds", link: "./resources/cards/9_of_diamonds.png" },    
+    { id: 22, card: "10 of Diamonds", link: "./resources/cards/10_of_diamonds.png" },    
+    { id: 23, card: "Jack of Diamonds", link: "./resources/cards/jack_of_diamonds2.png" },    
+    { id: 24, card: "Queen of Diamonds", link: "./resources/cards/queen_of_diamonds2.png" },    
+    { id: 25, card: "King of Diamonds", link: "./resources/cards/king_of_diamonds2.png" },    
 
-    // Spades  
-    { id: 39, card: "Ace of Spades", link: "" },  
-    { id: 40, card: "2 of Spades", link: "" },  
-    { id: 41, card: "3 of Spades", link: "" },  
-    { id: 42, card: "4 of Spades", link: "" },  
-    { id: 43, card: "5 of Spades", link: "" },  
-    { id: 44, card: "6 of Spades", link: "" },  
-    { id: 45, card: "7 of Spades", link: "" },  
-    { id: 46, card: "8 of Spades", link: "" },  
-    { id: 47, card: "9 of Spades", link: "" },  
-    { id: 48, card: "10 of Spades", link: "" },  
-    { id: 49, card: "Jack of Spades", link: "" },  
-    { id: 50, card: "Queen of Spades", link: "" },  
-    { id: 51, card: "King of Spades", link: "" }  
-]
+    // Clubs    
+    { id: 26, card: "Ace of Clubs", link: "./resources/cards/ace_of_clubs.png" },    
+    { id: 27, card: "2 of Clubs", link: "./resources/cards/2_of_clubs.png" },    
+    { id: 28, card: "3 of Clubs", link: "./resources/cards/3_of_clubs.png" },    
+    { id: 29, card: "4 of Clubs", link: "./resources/cards/4_of_clubs.png" },    
+    { id: 30, card: "5 of Clubs", link: "./resources/cards/5_of_clubs.png" },    
+    { id: 31, card: "6 of Clubs", link: "./resources/cards/6_of_clubs.png" },    
+    { id: 32, card: "7 of Clubs", link: "./resources/cards/7_of_clubs.png" },    
+    { id: 33, card: "8 of Clubs", link: "./resources/cards/8_of_clubs.png" },    
+    { id: 34, card: "9 of Clubs", link: "./resources/cards/9_of_clubs.png" },    
+    { id: 35, card: "10 of Clubs", link: "./resources/cards/10_of_clubs.png" },    
+    { id: 36, card: "Jack of Clubs", link: "./resources/cards/jack_of_clubs2.png" },    
+    { id: 37, card: "Queen of Clubs", link: "./resources/cards/queen_of_clubs2.png" },    
+    { id: 38, card: "King of Clubs", link: "./resources/cards/king_of_clubs2.png" },    
 
+    // Spades    
+    { id: 39, card: "Ace of Spades", link: "./resources/cards/ace_of_spades.png" },    
+    { id: 40, card: "2 of Spades", link: "./resources/cards/2_of_spades.png" },    
+    { id: 41, card: "3 of Spades", link: "./resources/cards/3_of_spades.png" },    
+    { id: 42, card: "4 of Spades", link: "./resources/cards/4_of_spades.png" },    
+    { id: 43, card: "5 of Spades", link: "./resources/cards/5_of_spades.png" },    
+    { id: 44, card: "6 of Spades", link: "./resources/cards/6_of_spades.png" },    
+    { id: 45, card: "7 of Spades", link: "./resources/cards/7_of_spades.png" },    
+    { id: 46, card: "8 of Spades", link: "./resources/cards/8_of_spades.png" },    
+    { id: 47, card: "9 of Spades", link: "./resources/cards/9_of_spades.png" },    
+    { id: 48, card: "10 of Spades", link: "./resources/cards/10_of_spades.png" },    
+    { id: 49, card: "Jack of Spades", link: "./resources/cards/jack_of_spades2.png" },    
+    { id: 50, card: "Queen of Spades", link: "./resources/cards/queen_of_spades2.png" },    
+    { id: 51, card: "King of Spades", link: "./resources/cards/king_of_spades2.png" }    
+]  
 
 // Change image 
 const imageTest=document.getElementById("test")
-imageTest.src=deck[0].link
+imageTest.src=deck[11].link
+// Game logic
+
+let playerCount
+let dealerCount
+let deadDeck=[]
+let liveDeck=[]
+const hitButton=document.querySelector("#hit")
+const dealCard = ()=>{
+    deck.forEach(card => {
+        if(!deadDeck.includes(card) &&!liveDeck.includes(card)){
+            liveDeck.push(card)
+        }
+    });
+    console.log(liveDeck)
+}
+
+hitButton.addEventListener("click",dealCard)
+
+console.log(liveDeck)
