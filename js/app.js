@@ -109,12 +109,13 @@ const deck = [
 ]  
 
 // Change image 
-const imageTest=document.getElementById("test")
-imageTest.src=deck[11].link
+/* const imageTest=document.getElementById("test")
+imageTest.src=deck[11].link */
 // Game logic
 
 let playerCount
 let dealerCount
+let randomCard
 let deadDeck=[]
 let liveDeck=[]
 const hitButton=document.querySelector("#hit")
@@ -125,8 +126,52 @@ const dealCard = ()=>{
         }
     });
     console.log(liveDeck)
+    cardRandomiser()
+    console.log(randomCard)
+    console.log(valueCheck(randomCard.card))
+
 }
 
 hitButton.addEventListener("click",dealCard)
 
 console.log(liveDeck)
+
+const cardRandomiser = ()=>{
+    randomCard = liveDeck[Math.floor(Math.random() * liveDeck.length)]
+}
+
+const valueCheck=(value)=>{
+    let cardName = value
+    if(cardName.includes("2")){
+        return 2
+    }
+    else if(cardName.includes("3")){
+        return 3
+    }
+    else if(cardName.includes("4")){
+        return 4
+    }
+    else if(cardName.includes("5")){
+        return 5
+    }
+    else if(cardName.includes("6")){
+        return 6
+    }
+    else if(cardName.includes("7")){
+        return 7
+    }
+    else if(cardName.includes("8")){
+        return 8
+    }
+    else if(cardName.includes("9")){
+        return 9
+    }
+    else if(cardName.includes("10")||cardName.includes("Jack") ||cardName.includes("King")||cardName.includes("Queen")){
+        return 10
+    }
+
+    // Ace can either be 11 or 1 depedning on user choice,will implement later
+    
+}
+
+console.log(valueCheck(deck[Math.floor(Math.random() * deck.length)].card))
